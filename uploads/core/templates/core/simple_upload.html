@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Image and text -->
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.3/css/mdb.min.css" rel="stylesheet">
+<style>
+  .external {
+
+
+
+  display: block;
+  margin: auto;
+  position: relative;
+  /*top: 50%;
+  left: 50%;*/
+  transform: translateY(-50%);
+  height: 200px;
+  width: 500px;
+  border: .1px solid #779cb4;
+  margin-top: 45vh;
+  <!--background: linear-gradient(to left, #83a4d4, #b6fbff);-->
+  background-color: #428554;
+  box-shadow: 3px 3px 25px 5px rgba(0, 0, 0, 0.5); }
+  .external .internal {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 45%;
+    margin: auto;
+    left: 50%;
+    transform: translateX(-50%);}
+    .text-center{
+    font-size:1.5rem;
+
+    }
+    button{
+    margin-top:}
+    .hide{
+    display:none;}
+
+}
+
+
+</style>
+
+
+<!--<nav class="navbar navbar-dark primary-color">-->
+  <!--<a class="navbar-brand" href="#">-->
+    <!--<img src="http://pngimg.com/uploads/ibm/ibm_PNG19656.png" height="30" class="d-inline-block align-top"-->
+      <!--alt="mdb logo"> IBM Hackathon-->
+  <!--</a>-->
+<!--</nav>-->
+<nav class="navbar navbar-expand-lg navbar-dark indigo">
+  <a class="navbar-brand" href="{% url 'home' %}">Project Name</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+
+    </ul>
+    <span class="navbar-text white-text">
+      Team- Struct by lightning
+    </span>
+  </div>
+</nav>
+
+<div class="container">
+
+
+<div class="external" >
+<form class="internal" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" class="internal_input" name="myfile">
+    <button type="submit" style="margin-top:1px" class="btn btn-green lighten-5">Upload</button>
+  </form>
+  </div>
+
+    <!--<a href="../name.png">Click here to Download</a>-->
+
+  {% if uploaded_file_url %}
+
+    <p style="font-color:success;font-size:.8em;margin-left:39%;margin-top:-10%;" class="text-center btn btn-success btn-sm ">Click here to Download<br>
+      </p>
+  {% endif %}
+
+  <p id="para" class="text-center"><a href="{% url 'home' %}">Return to home</a></p>
+{% endblock %}
+
+</div>
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.3/js/mdb.min.js"></script>
