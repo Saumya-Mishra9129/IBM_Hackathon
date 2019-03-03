@@ -57,7 +57,7 @@
   <!--</a>-->
 <!--</nav>-->
 <nav class="navbar navbar-expand-lg navbar-dark indigo">
-  <a class="navbar-brand" href="{% url 'home' %}">Project Name</a>
+  <a class="navbar-brand" href="{% url 'home' %}">Sensitise</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -88,12 +88,13 @@
   </form>
   </div>
 
-    <!--<a href="../name.png">Click here to Download</a>-->
+
 
   {% if uploaded_file_url %}
 
-    <p style="font-color:success;font-size:.8em;margin-left:39%;margin-top:-10%;" class="text-center btn btn-success btn-sm ">Click here to Download<br>
-      </p>
+    <a href="{{ uploaded_file_url }}"><p style="font-color:success;font-size:.8em;margin-left:39%;margin-top:-10%;" class="text-center btn btn-success btn-sm ">File uploaded Successfully <br>
+      Click here to Download</p></a>
+
   {% endif %}
 
   <p id="para" class="text-center"><a href="{% url 'home' %}">Return to home</a></p>

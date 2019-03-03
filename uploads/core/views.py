@@ -34,7 +34,6 @@ def api(request, fileurl):
         x = response.get('entities')[i].get('text')
         while x in text:
             text = text.replace(x, '*' * len(x))
-            #print(text)
     with open('./media/upload1.txt', 'w') as new:
         new.write(text)
     print("return")
@@ -56,22 +55,24 @@ def home(request):
 
 def simple_upload(request):
     if request.method == 'POST' and request.FILES['myfile']:
-        print("running")
+        #print("running")
         myfile = request.FILES['myfile']
 
         url = os.getcwd()
         url = url.replace(os.sep, '/')
-        print(url)
+        #print(url)
         url = url + '/media/' + myfile.name
-        print(url)
-        # fs = FileSystemStorage()
-        # filename = fs.save(myfile.name, myfile)
-        # uploaded_file_url = fs.url(filename)
+        #print(url)
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
         #print(uploaded_file_url)
         # url = '/media/' + myfile
         txt = api(request,url)
+        print(txt)
+        # data = open("/media/upload1.txt","r").read()
         return render(request, 'core/simple_upload.html', {
-            'uploaded_file_url': txt
+            'uploaded_file_url': txt,
         })
     return render(request, 'core/simple_upload.html')
 
